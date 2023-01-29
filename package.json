@@ -50,5 +50,16 @@
   "peerDependencies": {
     "react": "^18.x",
     "react-dom": "^18.x"
-  }
+  },
+  "tags": [
+    "react",
+    "modal",
+    "dialog"
+  ],
+  "keywords": [
+    "react",
+    "react-component",
+    "modal",
+    "dialog"
+  ]
 }
