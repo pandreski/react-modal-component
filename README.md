@@ -1,4 +1,4 @@
-# modal-component for React JS
+# react-modal-component for React JS
 
 A simple modal dialog component for React JS.
 

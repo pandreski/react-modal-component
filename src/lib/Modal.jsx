@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   height: 100vh;
   background-color: rgba(0,0,0,0.7);
   box-sizing: border-box;
+  z-index: 999;
 `
 
 const ModalBlock = styled.div`
@@ -21,8 +22,6 @@ const ModalBlock = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  position: fixed;
-  z-index: 999;
   padding: 30px;
 `
 
@@ -77,7 +76,7 @@ function Modal({ children, isOpen, onClose, closeIcon, closeIconSize }) {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
 
-    return () => {window.removeEventListener('keydown', handleKeyDown)};
+    return () => { window.removeEventListener('keydown', handleKeyDown) };
   }, []);
 
   return (
