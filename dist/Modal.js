@@ -8,7 +8,6 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _styled = _interopRequireDefault(require("@emotion/styled"));
 var _propTypes = _interopRequireDefault(require("prop-types"));
-var _close = _interopRequireDefault(require("./assets/close.svg"));
 var _templateObject, _templateObject2, _templateObject3;
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -16,7 +15,7 @@ function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && 
 function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 var Wrapper = _styled.default.div(_templateObject || (_templateObject = _taggedTemplateLiteral(["\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: rgba(0,0,0,0.7);\n  box-sizing: border-box;\n  z-index: 999;\n"])));
 var ModalBlock = _styled.default.div(_templateObject2 || (_templateObject2 = _taggedTemplateLiteral(["\n  position: relative;\n  width: 80%;\n  max-width: 600px;\n  background-color: #fff;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  padding: 30px;\n"])));
-var CloseButton = _styled.default.button(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  background: none;\n  border: none;\n  border-radius: 0;\n  width: ", "px;\n  height: ", "px;\n  padding: 0;\n  position: absolute;\n  z-index: 1;\n  cursor: pointer;\n  bottom: calc(100% + 1em);\n  right: 0;\n\n  img {\n    width: 100%;\n    height: 100%;\n    object-fit: contain;\n  }\n"])), function (props) {
+var CloseButton = _styled.default.button(_templateObject3 || (_templateObject3 = _taggedTemplateLiteral(["\n  background: none;\n  border: none;\n  border-radius: 0;\n  color: #fff;\n  width: ", "px;\n  height: ", "px;\n  padding: 0;\n  position: absolute;\n  z-index: 1;\n  cursor: pointer;\n  bottom: calc(100% + 1em);\n  right: 0;\n\n  img {\n    width: 100%;\n    height: 100%;\n    object-fit: contain;\n  }\n"])), function (props) {
   return props.size;
 }, function (props) {
   return props.size;
@@ -68,10 +67,10 @@ function Modal(_ref) {
   }, /*#__PURE__*/_react.default.createElement(CloseButton, {
     onClick: onClose,
     size: closeIconSize
-  }, /*#__PURE__*/_react.default.createElement("img", {
+  }, closeIcon ? /*#__PURE__*/_react.default.createElement("img", {
     src: closeIcon,
     alt: "Close"
-  })), children)) : null);
+  }) : /*#__PURE__*/_react.default.createElement("span", null, "\u2573")), children)) : null);
 }
 Modal.propTypes = {
   children: _propTypes.default.node.isRequired,
@@ -81,7 +80,7 @@ Modal.propTypes = {
   closeIconSize: _propTypes.default.oneOfType([_propTypes.default.string, _propTypes.default.number])
 };
 Modal.defaultProps = {
-  closeIcon: _close.default,
+  closeIcon: null,
   closeIconSize: 30
 };
 var _default = Modal;

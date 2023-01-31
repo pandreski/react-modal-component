@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
 import PropTypes from 'prop-types';
-import closeDefault from './assets/close.svg';
 
 const Wrapper = styled.div`
   position: fixed;
@@ -29,6 +28,7 @@ const CloseButton = styled.button`
   background: none;
   border: none;
   border-radius: 0;
+  color: #fff;
   width: ${props => props.size}px;
   height: ${props => props.size}px;
   padding: 0;
@@ -90,7 +90,13 @@ function Modal({ children, isOpen, onClose, closeIcon, closeIconSize }) {
         >
           <ModalBlock tabIndex={1}>
             <CloseButton onClick={onClose} size={closeIconSize}>
-              <img src={closeIcon} alt="Close" />
+              {
+                closeIcon ? (
+                  <img src={closeIcon} alt="Close" />
+                ) : (
+                  <span>&#9587;</span>
+                )
+              }
             </CloseButton>
             {children}
           </ModalBlock>
@@ -112,7 +118,7 @@ Modal.propTypes = {
 };
 
 Modal.defaultProps = {
-  closeIcon: closeDefault,
+  closeIcon: null,
   closeIconSize: 30,
 }
 
